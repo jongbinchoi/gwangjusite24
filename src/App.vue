@@ -23,6 +23,15 @@
   </div>
 
   <div class="line"></div>
+
+
+  <div class="checkbox">
+    <i class="fa-regular fa-circle-check checkimage"></i>
+    <p class="checkboxfont1">가입을 축하 드립니다!</p>
+    <p class="checkboxfont2">-세부 기능들을 이용해보세요.-</p>
+  </div>
+
+  
 </body>
   
   
@@ -103,7 +112,7 @@ export default {
   background-color: silver;
   width: 600px;
   height: 150px;
-  top :120px;
+  top :80px;
   border-radius: 10px;
   z-index: 1;
  }
@@ -150,10 +159,38 @@ export default {
   width: 1000px;
 
   position: relative;
-  top: 150px;
+  top: 120px;
   left: 400px;
 
 }
 
+.checkbox{
+  flex-wrap:wrap;
+  background-color: #9EBDF8;
+  width: 1000px;
+  height: 400px;
+
+  position: relative;;
+  left: 400px;
+  top: 130px;;
+  border-radius: 10px;
+}
  
+ .checkboxfont1{
+  text-align: center;
+  font-size: 50px;
+  padding-top: 90px;
+ }
+
+ .checkboxfont2{
+  text-align: center;
+ }
+
+ .checkimage{
+  flex-wrap:wrap;
+  font-size: 150px;
+  position:relative;
+  top: 50px;
+  left: 430px;
+ }
 </style>
