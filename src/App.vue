@@ -13,25 +13,29 @@
   </div>
 
   <body>
-  <div class="stpeline">
-   <div class="stepbar">
-    <div class="step1">1. 실명확인</div>
-    <div class="step2"></div>
-    <div class="step2text">2. 실명확인</div>
-   
-   </div>
+    <div class="location">
+  <div class="container-sm text-center" style="width:30%">
+   <h2>로그인</h2>
+   <div class="form-floating mb-3 color">
+  <input type="email" class="form-control id" id="floatingInput" placeholder="name@example.com">
+  <label for="floatingInput">ID</label>
+</div>
+<div class="form-floating mb-3 color">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+  <label for="floatingPassword">Password</label>
+</div>
+<div class="mb-3">
+<button type="button" class="btn btn-primary">로그인</button>
+</div>
+<div class="d-grid gap-2 mar">
+  <button class="btn btn-outline-secondary" type="button "><i class="far fa-light fa-envelope evloctaion"></i> Google 계정으로 가입하기</button>
+  <button class="btn btn-outline-secondary" type="button "><i class="far fa-light fa-envelope evloctaion"></i> Facebook 계정으로 가입하기</button>
+  <button class="btn btn-outline-secondary" type="button "><i class="far fa-light fa-envelope evloctaion"></i> 이메일 계정으로 가입하기</button>
+
+</div>
+      </div>  
+      
   </div>
-
-  <div class="line"></div>
-
-
-  <div class="checkbox">
-    <i class="fa-regular fa-circle-check checkimage"></i>
-    <p class="checkboxfont1">가입을 축하 드립니다!</p>
-    <p class="checkboxfont2">-세부 기능들을 이용해보세요.-</p>
-  </div>
-
-  
 </body>
   
   
@@ -40,14 +44,6 @@
 </template>
 
 <script>
-
-
-export default {
-  name: 'App',
-  components: {
-    
-  }
-}
 </script>
 
 <style>
@@ -100,97 +96,42 @@ export default {
     color: rgba(0, 0, 0, 0.8);
   }
   
-
-  .steplin{
-  position:absolute;
-  top: 200px;
-  }
-
- .stepbar{
-  position:relative;
-  left : 600px;
-  background-color: silver;
-  width: 600px;
-  height: 150px;
-  top :80px;
-  border-radius: 10px;
-  z-index: 1;
- }
-
-.step1{
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-  padding-top: 50px;
-
-  background-color: #8392ED;
-  width: 280px;
-  height: 150px;
-  border-radius: 10px;
-  z-index: 50;
-  position: absolute;
-}
-
-.step2{
-  text-align: right;
-  width: 0px;
-  border-left: 75px solid #8392ED;
-  border-top: 75px solid transparent;
-  border-bottom: 75px solid transparent;
-
-  position: relative;
-  left: 275px;
-}
-
-.step2text{
-  text-align: right;
-  font-size: 30px;
-  font-weight: bold;
-  padding-bottom: 500px;
-  padding-right: 50px;
-
-  position: relative;
-  bottom:95px;
-}
-
-.line{
-  flex-wrap:wrap;
-  border: solid 1px;
-  width: 1000px;
-
-  position: relative;
-  top: 120px;
-  left: 400px;
-
-}
-
-.checkbox{
-  flex-wrap:wrap;
-  background-color: #9EBDF8;
-  width: 1000px;
-  height: 400px;
-
-  position: relative;;
-  left: 400px;
-  top: 130px;;
-  border-radius: 10px;
-}
- 
- .checkboxfont1{
-  text-align: center;
+.login{
   font-size: 50px;
-  padding-top: 90px;
- }
+  font-weight: bold;
+  padding-top: 100px;
 
- .checkboxfont2{
-  text-align: center;
- }
+  position: relative;
+  left: 750px;
+}
 
- .checkimage{
-  flex-wrap:wrap;
-  font-size: 150px;
-  position:relative;
-  top: 50px;
-  left: 430px;
- }
+.input-text{
+  padding: 10px;
+  font-size: 15px;
+  background-color: #9EBDF8;
+  border: 1.5px solid black;
+  border-radius: 4px;
+}
+
+.location{
+  position: relative;
+  top: 150px;
+}
+
+.color>input{
+  background-color: rgba(158, 189, 248, 0.3);
+  
+}
+
+.btn-primary{
+  width: 100%;
+  
+}
+
+.id{
+  margin-top: 30px ;
+}
+.mar{
+  margin-top:70px;
+}
 </style>
