@@ -28,14 +28,24 @@
 <button type="button" class="btn btn-primary">로그인</button>
 </div>
 <div class="d-grid gap-2 mar">
-  <button class="btn btn-outline-secondary" type="button "><i class="far fa-light fa-envelope evloctaion"></i> Google 계정으로 가입하기</button>
-  <button class="btn btn-outline-secondary" type="button "><i class="far fa-light fa-envelope evloctaion"></i> Facebook 계정으로 가입하기</button>
+  
+  <button class="btn btn-outline-secondary text-black" type="button "> Google 계정으로 가입하기</button>
+  <button class="btn btn-outline-secondary text-black" type="button" style="background-color: #FEE500;"><i class="fa-solid fa-comment"></i>&nbsp;&nbsp;카카오 로그인</button>
   <button class="btn btn-outline-secondary" type="button "><i class="far fa-light fa-envelope evloctaion"></i> 이메일 계정으로 가입하기</button>
 
 </div>
       </div>  
       
   </div>
+
+
+  <meta name ="google-signin-client_id" content="892284951186-04edfrnds7d8ngftf21v0orcl1a9nqc4.apps.googleusercontent.com">
+  <ul>
+    <li id="GgCustomLogin" @click="loginWithGoogle">
+      <span>Login with Google</span>
+    </li>
+  </ul>
+
 </body>
   
   
@@ -44,6 +54,58 @@
 </template>
 
 <script>
+/* global gapi */
+export default {
+  name: "GoogleSignIn",
+  methods: {
+    loginWithGoogle() {
+      gapi.load("auth2", () => {
+        gapi.auth2.init();
+        const options = new gapi.auth2.SigninOptionsBuilder();
+        options.setPrompt("select_account");
+        options.setScope(
+          "email profile openid https://www.googleapis.com/auth/user.birthday.read"
+        );
+        gapi.auth2
+          .getAuthInstance()
+          .signIn(options)
+          .then(
+            this.onSignIn,
+            this.onSignInFailure
+          );
+      });
+    },
+    onSignIn(googleUser) {
+      const access_token = googleUser.getAuthResponse().access_token;
+      this.$http
+        .get("https://people.googleapis.com/v1/people/me", {
+          params: {
+            personFields: "birthdays",
+            key: "AIzaSyAbpzEXkZJDoDh4GnSHxozPzee7M54FHYQ",
+            access_token: access_token
+          }
+        })
+        .then((response) => {
+          console.log(response.data);
+          const profile = googleUser.getBasicProfile();
+          console.log(profile);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    onSignInFailure(t) {
+      console.log(t);
+    }
+  },
+  mounted() {
+    const script = document.createElement("script");
+    script.src = "https://apis.google.com/js/platform.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+};
 </script>
 
 <style>
@@ -134,4 +196,6 @@
 .mar{
   margin-top:70px;
 }
+
+
 </style>
