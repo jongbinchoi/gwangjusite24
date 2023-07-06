@@ -55,7 +55,7 @@ export default {
     signIn() {
       gapi.load('auth2', () => {
         gapi.auth2.init({
-          client_id: 'YOUR_CLIENT_ID'
+          client_id: '716095266829-9kjr4qp4r3cacerpvh0ghp8gjujdn2am.apps.googleusercontent.com'
         }).then(() => {
           gapi.auth2.getAuthInstance().signIn().then(googleUser => {
             var profile = googleUser.getBasicProfile();
